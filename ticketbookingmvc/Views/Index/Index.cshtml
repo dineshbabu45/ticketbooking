@@ -1,0 +1,37 @@
+﻿
+
+@{
+    ViewBag.Title = "Index";
+}
+
+@Html.ActionLink("Create new Travels Details", "Create")
+<br />
+@if (TempData["Message"] != null)
+{
+    @Html.Label((string)TempData["Message"])
+}
+<table border="1">
+    <tr>
+        <th>TravelsName</th>
+        <th>BusId</th>
+        <th>Source City</th>
+        <th>Destination City</th>
+        <th>Price</th>
+        <th>Action</th>
+    </tr>
+    @foreach (Ticketbooking.Entity.Bus bus in @Model)
+    {
+        <tr>
+            <td>@bus.TravelsName</td>
+            <td>@bus.BusId</td>
+            <td>@bus.SourceCity</td>
+            <td>@bus.DestinationCity</td>
+            <td>@bus.Price</td>
+            <td>
+                @Html.ActionLink("Edit /", "Edit", new { id = bus.BusId })
+            @Html.ActionLink("Delete", "Delete", new { id = bus.BusId })
+        </td>
+    </tr>
+}
+</table>
+
