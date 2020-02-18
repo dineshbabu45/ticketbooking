@@ -1,0 +1,55 @@
+﻿@model Ticketbooking.Entity.Bus
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm("Update", "Index", FormMethod.Post))
+{
+    @Html.HiddenFor(Model => Model.BusId);
+    <table>
+        <tr>
+            <td>
+                Travels Name :
+            </td>
+            <td>
+                @Html.TextBoxFor(Model => Model.TravelsName)
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                Source City:
+            </td>
+            <td>
+                @Html.TextBoxFor(Model => Model.SourceCity)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                DestinationCity :
+            </td>
+            <td>
+                @Html.TextBoxFor(Model => Model.DestinationCity)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Price :
+            </td>
+            <td>
+                @Html.TextBoxFor(Model => Model.Price)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="submit" />
+            </td>
+            <td>
+                <a href="~/Index">Back</a>
+            </td>
+        </tr>
+    </table>
+}

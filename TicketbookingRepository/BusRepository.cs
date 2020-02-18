@@ -11,7 +11,7 @@ namespace Ticketbooking.Repository
         {
             buses.Add(new Bus { TravelsName = "A1 Travels",  BusId = 1, SourceCity="Chennai",DestinationCity="CBE",Price = 1500 });
             buses.Add(new Bus { TravelsName = "Orange Travels", BusId = 2, SourceCity = "CBE", DestinationCity = "Trichy" ,Price = 1000 });
-            buses.Add(new Bus { TravelsName = "KPR",BusId = 3, SourceCity = "Chennai", DestinationCity = "Bangalore", Price = 900 });
+            buses.Add(new Bus { TravelsName = "KPR", BusId = 3, SourceCity = "Chennai", DestinationCity = "Bangalore", Price = 900 });
         }
         public IEnumerable<Bus> GetBusDetails()
         {
@@ -27,9 +27,17 @@ namespace Ticketbooking.Repository
         }
         public void DeleteBus(int busId)
         {
-            Bus list = GetBusId(busId);
-            if (list != null)
-                buses.Remove(list);
+            Bus bus = GetBusId(busId);
+            if (bus != null)
+                buses.Remove(bus);
+        }
+        public void EditBusDetails(Bus bus)
+        {
+            Bus updateBus = GetBusId(bus.BusId);
+            updateBus.SourceCity = bus.SourceCity;
+            updateBus.DestinationCity = bus.DestinationCity;
+            updateBus.Price = bus.Price;
+
         }
     }
 }

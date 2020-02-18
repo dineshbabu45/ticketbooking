@@ -39,5 +39,17 @@ namespace ticketbookingmvc.Controllers
             TempData["Message"] = "Bus Detail deleted successfully";
             return RedirectToAction("Index");
         }
+        public ActionResult Edit(int id)
+        {
+            Bus bus = busRepository.GetBusId(id);
+                return View(bus);
+        }
+        [HttpPost]
+        public ActionResult Update(Bus bus)
+        {
+            busRepository.EditBusDetails(bus);
+            TempData["Message"] = "Bus Details Edited successfully!!";
+            return RedirectToAction("Index");
+        }
     }
 }
