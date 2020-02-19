@@ -1,0 +1,44 @@
+﻿@model Account.Entity.Account
+
+@{
+    ViewBag.Title = "Login";
+}
+
+<h2 align="center">Login</h2>
+<style>
+    table, th, td {
+      
+        border:0 15px;
+        padding: 15px;
+        
+    }
+</style>
+@using (Html.BeginForm("Login", "Index", FormMethod.Post))
+{
+    <table align="center">
+        <tr>
+            <td>
+                Email Id : 
+            </td>
+            <td>
+                @Html.TextBoxFor(Model => Model.EmailId)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Password : 
+            </td>
+            <td>
+                @Html.TextBoxFor(Model => Model.Password)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="submit" value="LOGIN"/>
+            </td>
+            <td>
+                <a href="~/Account/SignUp"><input type="button" value="SIGN UP" /></a>
+            </td>
+        </tr>
+    </table>
+}

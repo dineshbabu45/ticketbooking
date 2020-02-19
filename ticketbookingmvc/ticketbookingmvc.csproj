@@ -135,6 +135,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\IndexController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -150,6 +151,8 @@
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
     <Content Include="Views\Index\Edit.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\SignUp.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -162,6 +165,10 @@
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Account.Entity\Account.Entity.csproj">
+      <Project>{87f084ad-49dc-4421-845b-4c7f6954cfff}</Project>
+      <Name>Account.Entity</Name>
+    </ProjectReference>
     <ProjectReference Include="..\TicketbookingEntity\Ticketbooking.Entity.csproj">
       <Project>{6c4a2a1a-a386-421a-9ccd-418736460902}</Project>
       <Name>Ticketbooking.Entity</Name>

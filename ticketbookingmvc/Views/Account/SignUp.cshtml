@@ -1,0 +1,68 @@
+﻿@model Account.Entity.Account
+
+@{
+    ViewBag.Title = "SignUp";
+}
+
+<h2 align="center">SignUp</h2>
+<style>
+    table,td {
+        border: 0 15px;
+        padding: 15px;
+    }
+</style>
+@using (Html.BeginForm("Login", "Index", FormMethod.Post))
+{
+    <table align="center">
+        <tr>
+            <td>
+                Enter your name :
+            </td>
+            <td>
+                @Html.TextBoxFor(Model => Model.Name)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Enter your Age :
+            </td>
+            <td>
+                @Html.TextBoxFor(Model => Model.Age)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Enter Your Email Id :
+            </td>
+            <td>
+                @Html.TextBoxFor(Model => Model.EmailId)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Choose Gender :
+            </td>
+            <td>
+                 @Html.RadioButtonFor(Model => Model.Gender, "Male")Male
+                 @Html.RadioButtonFor(Model => Model.Gender, "Female")Female
+                 @Html.RadioButtonFor(Model => Model.Gender, "Others")Others
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Enter Password :
+            </td>
+            <td>
+                @Html.TextBoxFor(Model => Model.Password)
+            </td>
+        </tr>
+        <tr>
+            <td> <label>
+    Already have an account?
+    <a href="~/Account/Login">Login</a>
+</label></td>
+            <td><input type="submit" /></td>
+        </tr>
+    </table>
+}

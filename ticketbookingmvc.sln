@@ -5,9 +5,11 @@ VisualStudioVersion = 16.0.29728.190
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ticketbookingmvc", "ticketbookingmvc\ticketbookingmvc.csproj", "{419F7E91-C391-4D50-80EB-1364909B8CF9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ticketbooking.Repository", "TicketbookingRepository\Ticketbooking.Repository.csproj", "{A43B3A6B-04A6-4DDF-A104-E77FB8D7290E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ticketbooking.Repository", "TicketbookingRepository\Ticketbooking.Repository.csproj", "{A43B3A6B-04A6-4DDF-A104-E77FB8D7290E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ticketbooking.Entity", "TicketbookingEntity\Ticketbooking.Entity.csproj", "{6C4A2A1A-A386-421A-9CCD-418736460902}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ticketbooking.Entity", "TicketbookingEntity\Ticketbooking.Entity.csproj", "{6C4A2A1A-A386-421A-9CCD-418736460902}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Account.Entity", "Account.Entity\Account.Entity.csproj", "{87F084AD-49DC-4421-845B-4C7F6954CFFF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{6C4A2A1A-A386-421A-9CCD-418736460902}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6C4A2A1A-A386-421A-9CCD-418736460902}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6C4A2A1A-A386-421A-9CCD-418736460902}.Release|Any CPU.Build.0 = Release|Any CPU
+		{87F084AD-49DC-4421-845B-4C7F6954CFFF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{87F084AD-49DC-4421-845B-4C7F6954CFFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{87F084AD-49DC-4421-845B-4C7F6954CFFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{87F084AD-49DC-4421-845B-4C7F6954CFFF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
