@@ -1,24 +1,22 @@
-﻿using System;
+﻿using Booking.Repository;
+using BookingEntity;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
-using Ticketbooking.Entity;
-using Ticketbooking.Repository;
 
 namespace ticketbookingmvc.Controllers
 {
     public class IndexController : Controller
     {
         // GET: Index
-        BusRepository busRepository;
+        BookingRepository bookingRepository;
         public IndexController()
         {
-            busRepository = new BusRepository();
+            bookingRepository = new BookingRepository();
         }
         public ActionResult Index()
         {
-            IEnumerable<Bus> bus = busRepository.GetBusDetails();
+            IEnumerable<Bus> bus = bookingRepository.GetBusDetails();
             return View(bus);
         }
         public ActionResult Create()
@@ -38,7 +36,7 @@ namespace ticketbookingmvc.Controllers
                 bus.Price = Convert.ToDouble(formCollection["Price"]);
                 if (TryUpdateModel(bus))                  //////////////////TryUpdateModel..
                 {
-                    busRepository.AddBus(bus);
+                    bookingRepository.AddBus(bus);
                     TempData["Message"] = "Bus detail added successfully!!!";
                 }
                 return RedirectToAction("Index");
@@ -50,19 +48,19 @@ namespace ticketbookingmvc.Controllers
         }
         public ActionResult Delete(int id)
         {
-            busRepository.DeleteBus(id);
+            bookingRepository.DeleteBus(id);
             TempData["Message"] = "Bus Detail deleted successfully";
             return RedirectToAction("Index");
         }
         public ActionResult Edit(int id)
         {
-            Bus bus = busRepository.GetBusId(id);
+            Bus bus = bookingRepository.GetBusId(id);
                 return View(bus);
         }
         [HttpPost]
         public ActionResult Update(Bus bus)
         {
-            busRepository.EditBusDetails(bus);
+            bookingRepository.EditBusDetails(bus);
             TempData["Message"] = "Bus Details Edited successfully!!";
             return RedirectToAction("Index");
         }

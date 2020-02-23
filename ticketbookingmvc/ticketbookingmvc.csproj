@@ -165,17 +165,13 @@
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Account.Entity\Account.Entity.csproj">
-      <Project>{87f084ad-49dc-4421-845b-4c7f6954cfff}</Project>
-      <Name>Account.Entity</Name>
+    <ProjectReference Include="..\BokkingRepository\Booking.Repository.csproj">
+      <Project>{22eb0dcb-5787-4759-a4ae-c2b7b0c57d7b}</Project>
+      <Name>Booking.Repository</Name>
     </ProjectReference>
-    <ProjectReference Include="..\TicketbookingEntity\Ticketbooking.Entity.csproj">
-      <Project>{6c4a2a1a-a386-421a-9ccd-418736460902}</Project>
-      <Name>Ticketbooking.Entity</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\TicketbookingRepository\Ticketbooking.Repository.csproj">
-      <Project>{a43b3a6b-04a6-4ddf-a104-e77fb8d7290e}</Project>
-      <Name>Ticketbooking.Repository</Name>
+    <ProjectReference Include="..\BookingEntity\BookingEntity.csproj">
+      <Project>{f2afa49b-9d33-4cc3-8f09-91cdbc86a194}</Project>
+      <Name>BookingEntity</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
