@@ -1,4 +1,4 @@
-﻿@model BookingEntity.AccountEntity
+﻿@model BusBooking.Entity.Account
 
 @{
     ViewBag.Title = "Login";
@@ -18,7 +18,8 @@
     <table align="center">
         <tr>
             <td>
-                Email Id : 
+                @Html.LabelFor(model => model.EmailId, new { @class = "col-md-2 control-label" })
+               @* Email Id :*@
             </td>
             <td>
                 @Html.TextBoxFor(Model => Model.EmailId)
@@ -26,7 +27,8 @@
         </tr>
         <tr>
             <td>
-                Password : 
+                @Html.LabelFor(model => model.Password, new { @class = "col-md-2 control-label" })
+                @*Password :*@
             </td>
             <td>
                 @Html.TextBoxFor(Model => Model.Password)

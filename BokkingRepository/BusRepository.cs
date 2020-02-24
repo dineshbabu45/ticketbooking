@@ -1,4 +1,4 @@
-﻿using BookingEntity;
+﻿using BusBooking.Entity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace Booking.Repository
 {
-    public class BookingRepository
+    public class BusRepository
     {
       
         public static List<Bus> buses = new List<Bus>();
-        static BookingRepository()
+        static BusRepository()
         {
             buses.Add(new Bus { TravelsName = "A1 Travels", BusId = 1, SourceCity = "Chennai", DestinationCity = "CBE", Price = 1500 });
             buses.Add(new Bus { TravelsName = "Orange Travels", BusId = 2, SourceCity = "CBE", DestinationCity = "Trichy", Price = 1000 });

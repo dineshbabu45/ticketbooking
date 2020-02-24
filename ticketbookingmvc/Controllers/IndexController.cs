@@ -1,6 +1,5 @@
 ﻿using Booking.Repository;
-using BookingEntity;
-using System;
+using BusBooking.Entity;
 using System.Collections.Generic;
 using System.Web.Mvc;
 
@@ -9,10 +8,10 @@ namespace ticketbookingmvc.Controllers
     public class IndexController : Controller
     {
         // GET: Index
-        BookingRepository bookingRepository;
+        BusRepository bookingRepository;
         public IndexController()
         {
-            bookingRepository = new BookingRepository();
+            bookingRepository = new BusRepository();
         }
         public ActionResult Index()
         {
@@ -29,11 +28,11 @@ namespace ticketbookingmvc.Controllers
             try
             {
                Bus bus = new Bus();
-                bus.TravelsName = formCollection["TravelsName"];
-                bus.BusId = Convert.ToInt32(formCollection["BusId"]);
-                bus.SourceCity = formCollection["SourceCity"];
-                bus.DestinationCity = formCollection["DestinationCity"];
-                bus.Price = Convert.ToDouble(formCollection["Price"]);
+                //bus.TravelsName = formCollection["TravelsName"];
+                //bus.BusId = Convert.ToInt32(formCollection["BusId"]);
+                //bus.SourceCity = formCollection["SourceCity"];
+                //bus.DestinationCity = formCollection["DestinationCity"];
+                //bus.Price = Convert.ToDouble(formCollection["Price"]);
                 if (TryUpdateModel(bus))                  //////////////////TryUpdateModel..
                 {
                     bookingRepository.AddBus(bus);

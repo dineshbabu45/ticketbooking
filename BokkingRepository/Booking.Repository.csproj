@@ -41,13 +41,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BookingRepository.cs" />
+    <Compile Include="BusRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BookingEntity\BookingEntity.csproj">
+    <ProjectReference Include="..\BookingEntity\BusBooking.Entity.csproj">
       <Project>{f2afa49b-9d33-4cc3-8f09-91cdbc86a194}</Project>
-      <Name>BookingEntity</Name>
+      <Name>BusBooking.Entity</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -169,9 +169,9 @@
       <Project>{22eb0dcb-5787-4759-a4ae-c2b7b0c57d7b}</Project>
       <Name>Booking.Repository</Name>
     </ProjectReference>
-    <ProjectReference Include="..\BookingEntity\BookingEntity.csproj">
+    <ProjectReference Include="..\BookingEntity\BusBooking.Entity.csproj">
       <Project>{f2afa49b-9d33-4cc3-8f09-91cdbc86a194}</Project>
-      <Name>BookingEntity</Name>
+      <Name>BusBooking.Entity</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
