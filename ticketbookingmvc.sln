@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusTicketbooking", "ticketb
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusBooking.Entity", "BookingEntity\BusBooking.Entity.csproj", "{F2AFA49B-9D33-4CC3-8F09-91CDBC86A194}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Booking.Repository", "BokkingRepository\Booking.Repository.csproj", "{22EB0DCB-5787-4759-A4AE-C2B7B0C57D7B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusBooking.Repository", "BokkingRepository\BusBooking.Repository.csproj", "{22EB0DCB-5787-4759-A4AE-C2B7B0C57D7B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

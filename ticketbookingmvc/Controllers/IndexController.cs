@@ -1,4 +1,4 @@
-﻿using Booking.Repository;
+﻿using BusBooking.Repository;
 using BusBooking.Entity;
 using System.Collections.Generic;
 using System.Web.Mvc;
@@ -18,32 +18,32 @@ namespace ticketbookingmvc.Controllers
             IEnumerable<Bus> bus = bookingRepository.GetBusDetails();
             return View(bus);
         }
+       
         public ActionResult Create()
         {
             return View();
         }
         [HttpPost]
-        public ActionResult Create(FormCollection formCollection)
+        public ActionResult Create(Bus buses)
         {
-            try
+
+           
+                Bus bus = new Bus();
+            //bus.TravelsName = formCollection["TravelsName"];
+            //bus.BusId = Convert.ToInt32(formCollection["BusId"]);
+            //bus.SourceCity = formCollection["SourceCity"];
+            //bus.DestinationCity = formCollection["DestinationCity"];
+            //bus.Price = Convert.ToDouble(formCollection["Price"]);
+            if (TryUpdateModel(bus))                  //////////////////TryUpdateModel..
             {
-               Bus bus = new Bus();
-                //bus.TravelsName = formCollection["TravelsName"];
-                //bus.BusId = Convert.ToInt32(formCollection["BusId"]);
-                //bus.SourceCity = formCollection["SourceCity"];
-                //bus.DestinationCity = formCollection["DestinationCity"];
-                //bus.Price = Convert.ToDouble(formCollection["Price"]);
-                if (TryUpdateModel(bus))                  //////////////////TryUpdateModel..
-                {
-                    bookingRepository.AddBus(bus);
-                    TempData["Message"] = "Bus detail added successfully!!!";
-                }
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+                bookingRepository.AddBus(bus);
+                TempData["Message"] = "Bus detail added successfully!!!";
+               }
+
+
+               return View();
+              //return RedirectToAction("Index");
+         
         }
         public ActionResult Delete(int id)
         {
@@ -51,6 +51,7 @@ namespace ticketbookingmvc.Controllers
             TempData["Message"] = "Bus Detail deleted successfully";
             return RedirectToAction("Index");
         }
+        [HttpGet]
         public ActionResult Edit(int id)
         {
             Bus bus = bookingRepository.GetBusId(id);

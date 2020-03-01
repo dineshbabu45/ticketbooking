@@ -3,44 +3,52 @@
 @{
     ViewBag.Title = "Login";
 }
+<div  class="Login">
 
-<h2 align="center">Login</h2>
-<style>
-    table, th, td {
-      
-        border:0 15px;
-        padding: 15px;
-        
-    }
-</style>
-@using (Html.BeginForm("Login", "Index", FormMethod.Post))
+<h2 align="center">Login<br /><br /></h2>
+
+<link href="~/Style/StyleSheet.css" rel="stylesheet" />
+
+@using (Html.BeginForm("Login", "Account", FormMethod.Post))
 {
+
     <table align="center">
         <tr>
             <td>
-                @Html.LabelFor(model => model.EmailId, new { @class = "col-md-2 control-label" })
-               @* Email Id :*@
+                @Html.LabelFor(model => model.EmailId,"Email Id")
+                
             </td>
             <td>
                 @Html.TextBoxFor(Model => Model.EmailId)
+                @Html.ValidationMessageFor(model => model.EmailId)
             </td>
         </tr>
         <tr>
             <td>
-                @Html.LabelFor(model => model.Password, new { @class = "col-md-2 control-label" })
-                @*Password :*@
+                @Html.LabelFor(model => model.Password)
+                
             </td>
             <td>
-                @Html.TextBoxFor(Model => Model.Password)
+                @Html.TextBoxFor(Model => Model.Password,new { @type="password"})
+                @Html.ValidationMessageFor(Model => Model.Password)
             </td>
         </tr>
         <tr>
-            <td>
-                <input type="submit" value="LOGIN"/>
+            <td colspan="2">
+               
+                <input type="submit" value="LOGIN" class="btnlogin" />
             </td>
-            <td>
-                <a href="~/Account/SignUp"><input type="button" value="SIGN UP" /></a>
+            </tr>
+        <tr>
+            <td colspan="2">
+                <a href="~/Account/SignUp"><input type="button" value="SIGN UP" class="btnlogin"/></a>
             </td>
         </tr>
+       <tr>
+           <td></td>
+       </tr>
     </table>
+
 }
+
+</div>

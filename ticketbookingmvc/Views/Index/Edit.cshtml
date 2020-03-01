@@ -5,29 +5,24 @@
 }
 
 <h2>Edit</h2>
-<style>
-    table, th, td {
-        border: 0 15px;
-        padding: 15px;
-    }
-</style>
+
 
 @using (Html.BeginForm("Update", "Index", FormMethod.Post))
 {
-    @Html.HiddenFor(Model => Model.BusId);
+    @Html.HiddenFor(Model => Model.BusId)
     <table>
         <tr>
             <td>
-                Travels Name :
+                @Html.LabelFor(Model => Model.TravelsName, "Travels Name")
             </td>
             <td>
                 @Html.TextBoxFor(Model => Model.TravelsName)
             </td>
         </tr>
-        
+
         <tr>
             <td>
-                Source City:
+                @Html.LabelFor(model => model.SourceCity, "Source City")
             </td>
             <td>
                 @Html.TextBoxFor(Model => Model.SourceCity)
@@ -35,7 +30,7 @@
         </tr>
         <tr>
             <td>
-                DestinationCity :
+                @Html.LabelFor(model => model.DestinationCity, "Destination City")
             </td>
             <td>
                 @Html.TextBoxFor(Model => Model.DestinationCity)
@@ -43,7 +38,7 @@
         </tr>
         <tr>
             <td>
-                Price :
+                @Html.LabelFor(model => model.Price, "Price")
             </td>
             <td>
                 @Html.TextBoxFor(Model => Model.Price)
@@ -51,10 +46,11 @@
         </tr>
         <tr>
             <td>
-                <input type="submit" />
+                <input type="submit" value="Update" />
             </td>
             <td>
-                <a href="~/Index">Back</a>
+                <a href="~/Index/Index">Back</a>
+
             </td>
         </tr>
     </table>

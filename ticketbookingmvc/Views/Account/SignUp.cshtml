@@ -3,6 +3,7 @@
 @{
     ViewBag.Title = "SignUp";
 }
+<div class="Login">
 
 <h2 align="center">SignUp</h2>
 <style>
@@ -11,7 +12,7 @@
         padding: 15px;
     }
 </style>
-@using (Html.BeginForm("Login", "Index", FormMethod.Post))
+@using (Html.BeginForm("Login", "Account", FormMethod.Post))
 {
     <table align="center">
         <tr>
@@ -20,6 +21,7 @@
             </td>
             <td>
                 @Html.TextBoxFor(Model => Model.Name)
+                @Html.ValidationMessageFor(model => model.Name)
             </td>
         </tr>
         <tr>
@@ -28,6 +30,7 @@
             </td>
             <td>
                 @Html.TextBoxFor(Model => Model.Age)
+                @Html.ValidationMessageFor(model => model.Age)
             </td>
         </tr>
         <tr>
@@ -54,7 +57,8 @@
                 Enter Password :
             </td>
             <td>
-                @Html.TextBoxFor(Model => Model.Password)
+                @Html.TextBoxFor(Model => Model.Password,new { @type="password"})
+                @Html.ValidationMessageFor(model => model.Password)
             </td>
         </tr>
         <tr>
@@ -66,3 +70,4 @@
         </tr>
     </table>
 }
+</div>

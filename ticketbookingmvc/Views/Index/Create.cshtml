@@ -3,35 +3,42 @@
 @{
     ViewBag.Title = "Create";
 }
-    <style>
-        table, th, td {
-            border: 0 15px;
-            padding: 15px;
-        }
-    </style>
+<style>
+    table, th, td {
+        border: 0 15px;
+        padding: 15px;
+    }
+</style>
 
 @using (Html.BeginForm("Create", "Index", FormMethod.Post))
 {
     <table>
         <tr>
             <td>
-                Travels Name :
+                @Html.LabelFor(model => model.TravelsName, "Travels Name")
             </td>
             <td>
                 @Html.TextBoxFor(Model => Model.TravelsName)
+                @*@Html.ValidationMessageFor(model => model.TravelsName)*@
+                <span style="color:red">
+                    @Html.ValidationMessageFor(Model => Model.TravelsName)
+                </span>
             </td>
+
         </tr>
         <tr>
             <td>
-                Bus Id :
+                @Html.LabelFor(model => model.BusId, "Bus Id")
             </td>
-            <td>
+            <td style="color:red">
                 @Html.TextBoxFor(Model => Model.BusId)
+                @Html.ValidationMessageFor(Model => Model.BusId)
             </td>
+
         </tr>
         <tr>
             <td>
-                Source City:
+                @Html.LabelFor(model => model.SourceCity, "Source City")
             </td>
             <td>
                 @Html.TextBoxFor(Model => Model.SourceCity)
@@ -39,7 +46,7 @@
         </tr>
         <tr>
             <td>
-                DestinationCity :
+                @Html.LabelFor(model => model.DestinationCity, "Destination City")
             </td>
             <td>
                 @Html.TextBoxFor(Model => Model.DestinationCity)
@@ -47,7 +54,7 @@
         </tr>
         <tr>
             <td>
-                Price :
+                @Html.LabelFor(model => model.Price, "Price")
             </td>
             <td>
                 @Html.TextBoxFor(Model => Model.Price)
@@ -58,8 +65,9 @@
                 <input type="submit" />
             </td>
             <td>
-                <a href="~/Index">Back</a>
+                <a href="/Index/Index">Back</a>
             </td>
         </tr>
     </table>
+
 }

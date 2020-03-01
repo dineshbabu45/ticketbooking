@@ -1580,12 +1580,12 @@ pre code {
   max-height: 340px;
   overflow-y: scroll;
 }
-.container {
+/*.container {
   padding-right: 15px;
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
-}
+}*/
 @media (min-width: 768px) {
   .container {
     width: 750px;
@@ -3697,10 +3697,10 @@ tbody.collapse.in {
 }
 .dropup .caret,
 .navbar-fixed-bottom .dropdown .caret {
-  content: "";
-  border-top: 0;
-  border-bottom: 4px dashed;
-  border-bottom: 4px solid \9;
+    content: "";
+    border-top: 0;
+    border-bottom: 4px dashed;
+    border-bottom: 4px solid \9;
 }
 .dropup .dropdown-menu,
 .navbar-fixed-bottom .dropdown .dropdown-menu {
@@ -4347,7 +4347,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
     border-radius: 0;
   }
 }
-.navbar-brand {
+/*.navbar-brand {
   float: left;
   height: 50px;
   padding: 15px 15px;
@@ -4357,7 +4357,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .navbar-brand:hover,
 .navbar-brand:focus {
   text-decoration: none;
-}
+}*/
 .navbar-brand > img {
   display: block;
 }

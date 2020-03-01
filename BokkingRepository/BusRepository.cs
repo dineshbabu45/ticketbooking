@@ -1,15 +1,13 @@
 ﻿using BusBooking.Entity;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Booking.Repository
+
+namespace BusBooking.Repository
 {
     public class BusRepository
     {
-      
+
         public static List<Bus> buses = new List<Bus>();
         static BusRepository()
         {
