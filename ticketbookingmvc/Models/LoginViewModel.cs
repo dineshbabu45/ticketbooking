@@ -1,9 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Web;
 
-namespace BusBooking.Entity
+namespace ticketbookingmvc.Models
 {
-    public class Account
+    public class LoginViewModel
     {
         [Required]
         [EmailAddress]
@@ -11,11 +14,5 @@ namespace BusBooking.Entity
         [Required]
         [MaxLength(16)]
         public string Password { get; set; }
-        [Required]
-        public string Name { get; set; }
-        [Required]
-        public byte Age { get; set; }
-        [Required]
-        public string Gender { get; set; }
     }
 }

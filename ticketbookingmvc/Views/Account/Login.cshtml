@@ -1,4 +1,4 @@
-﻿@model BusBooking.Entity.Account
+﻿@model ticketbookingmvc.Models.LoginViewModel
 
 @{
     ViewBag.Title = "Login";
@@ -12,42 +12,38 @@
 @using (Html.BeginForm("Login", "Account", FormMethod.Post))
 {
 
-    <table align="center">
-        <tr>
-            <td>
+    <div align="center">
+        <div class="input-container">
+       
                 @Html.LabelFor(model => model.EmailId,"Email Id")
-                
-            </td>
-            <td>
                 @Html.TextBoxFor(Model => Model.EmailId)
                 @Html.ValidationMessageFor(model => model.EmailId)
-            </td>
-        </tr>
-        <tr>
-            <td>
-                @Html.LabelFor(model => model.Password)
+            
+        </div>
+        <div class="input-container">
+           
                 
-            </td>
-            <td>
-                @Html.TextBoxFor(Model => Model.Password,new { @type="password"})
+           
+                @Html.LabelFor(model => model.Password)
+                @Html.TextBoxFor(Model => Model.Password,new { @type="password",@maxlength="16"})
                 @Html.ValidationMessageFor(Model => Model.Password)
-            </td>
-        </tr>
-        <tr>
-            <td colspan="2">
+          
+        </div>
+        <br />
+        <br />
+        <div class="input-container">
+           
                
-                <input type="submit" value="LOGIN" class="btnlogin" />
-            </td>
-            </tr>
-        <tr>
-            <td colspan="2">
-                <a href="~/Account/SignUp"><input type="button" value="SIGN UP" class="btnlogin"/></a>
-            </td>
-        </tr>
-       <tr>
-           <td></td>
-       </tr>
-    </table>
+                <input type="submit" value="LOGIN" class="btnlogin" style="background:#07ad90"/>
+            
+            </div>
+        <div class="link">
+            
+                <div>Don't have an account? <a href="~/Account/SignUp">SignUp</a></div>
+           
+        </div>
+      
+    </div>
 
 }
 

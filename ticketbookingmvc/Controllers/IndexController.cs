@@ -24,24 +24,25 @@ namespace ticketbookingmvc.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult Create(Bus buses)
+        public ActionResult Create(Bus bus)
         {
 
-           
-                Bus bus = new Bus();
+               
             //bus.TravelsName = formCollection["TravelsName"];
             //bus.BusId = Convert.ToInt32(formCollection["BusId"]);
             //bus.SourceCity = formCollection["SourceCity"];
             //bus.DestinationCity = formCollection["DestinationCity"];
             //bus.Price = Convert.ToDouble(formCollection["Price"]);
-            if (TryUpdateModel(bus))                  //////////////////TryUpdateModel..
+            if (ModelState.IsValid)                  //////////////////TryUpdateModel..
             {
                 bookingRepository.AddBus(bus);
                 TempData["Message"] = "Bus detail added successfully!!!";
-               }
+                return RedirectToAction("Index");
+
+            }
 
 
-               return View();
+            return View();
               //return RedirectToAction("Index");
          
         }

@@ -14,21 +14,19 @@
 
 </head>
 <body>
-    <div>
+    
         <div class="container">
-            <div>
-
-
+           <div>
                 @Html.ActionLink("Home", "Index", "Index", new { area = "" }, new { @class = "navbar-brand-home" })
+
+           </div>
+            <div>
                 @Html.ActionLink("Login", "Login", "Account", new { area = "" }, new { @class = "navbar-brand" })
-                @Html.ActionLink("SignUp", "SignUp", "Account", new { area = "" }, new { @class = "navbar-brand" })
             </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                </ul>
+               @* @Html.ActionLink("SignUp", "SignUp", "Account", new { area = "" }, new { @class = "navbar-brand" })*@
             </div>
-        </div>
-    </div>
+
+  
 
     <div>
         <div new class="content">

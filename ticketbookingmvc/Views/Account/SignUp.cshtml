@@ -3,71 +3,67 @@
 @{
     ViewBag.Title = "SignUp";
 }
-<div class="Login">
+    <div class="SignUp">
+        <link href="~/Style/StyleSheet.css" rel="stylesheet" />
+        <h2 align="center">SignUp</h2>
+        <style>
+            table, td {
+                border: 0 15px;
+                padding: 15px;
+            }
+        </style>
+        @using (Html.BeginForm("Login", "Account", FormMethod.Post))
+        {
+            <div align="center">
+                <div class="input-container">
+                    @Html.LabelFor(Model => Model.Name)
+                    @*Enter your name :*@
+                    @Html.TextBoxFor(Model => Model.Name)
+                    @Html.ValidationMessageFor(model => model.Name)
 
-<h2 align="center">SignUp</h2>
-<style>
-    table,td {
-        border: 0 15px;
-        padding: 15px;
-    }
-</style>
-@using (Html.BeginForm("Login", "Account", FormMethod.Post))
-{
-    <table align="center">
-        <tr>
-            <td>
-                Enter your name :
-            </td>
-            <td>
-                @Html.TextBoxFor(Model => Model.Name)
-                @Html.ValidationMessageFor(model => model.Name)
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Enter your Age :
-            </td>
-            <td>
-                @Html.TextBoxFor(Model => Model.Age)
-                @Html.ValidationMessageFor(model => model.Age)
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Enter Your Email Id :
-            </td>
-            <td>
-                @Html.TextBoxFor(Model => Model.EmailId)
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Choose Gender :
-            </td>
-            <td>
-                 @Html.RadioButtonFor(Model => Model.Gender, "Male")Male
-                 @Html.RadioButtonFor(Model => Model.Gender, "Female")Female
-                 @Html.RadioButtonFor(Model => Model.Gender, "Others")Others
+                </div>
+                <div class="input-container">
 
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Enter Password :
-            </td>
-            <td>
-                @Html.TextBoxFor(Model => Model.Password,new { @type="password"})
-                @Html.ValidationMessageFor(model => model.Password)
-            </td>
-        </tr>
-        <tr>
-            <td> <label>
-    Already have an account?
-    <a href="~/Account/Login">Login</a>
-</label></td>
-            <td><input type="submit" /></td>
-        </tr>
-    </table>
-}
-</div>
+                    @*Enter your Age :*@
+                    @Html.LabelFor(Model => Model.Age)
+                    @Html.TextBoxFor(Model => Model.Age)
+                    @Html.ValidationMessageFor(model => model.Age)
+
+                </div>
+                <div class="input-container">
+
+                    @*Enter Your Email Id :*@
+                    @Html.LabelFor(Model => Model.EmailId)
+                    @Html.TextBoxFor(Model => Model.EmailId)
+                    @Html.ValidationMessageFor(model => model.EmailId)
+                </div>
+                <div class="input-container">
+
+                    @*Choose Gender :*@
+                    @Html.LabelFor(Model => Model.Gender)
+                    @Html.RadioButtonFor(Model => Model.Gender, "Male",new {@class="gender"})Male
+                    @Html.RadioButtonFor(Model => Model.Gender, "Female")Female
+                    @Html.RadioButtonFor(Model => Model.Gender, "Others")Others
+
+
+                </div>
+                <div class="input-container">
+
+                    @*Enter Password :*@
+                    @Html.LabelFor(Model => Model.Password)
+                    @Html.TextBoxFor(Model => Model.Password, new { @type = "password" })
+                    @Html.ValidationMessageFor(model => model.Password)
+
+                </div>
+                <div class="input-container">
+                   
+                        <label>
+                            Already have an account?
+                            <a href="~/Account/Login">Login</a>
+                        </label>
+                    
+                    <input type="submit" />
+                </div>
+            </div>
+        }
+    </div>
