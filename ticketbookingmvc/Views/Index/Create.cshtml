@@ -1,4 +1,4 @@
-﻿@model BusBooking.Entity.Bus
+﻿@model ticketbookingmvc.Models.BusViewModel
 
 @{
     ViewBag.Title = "Create";
@@ -9,65 +9,105 @@
         padding: 15px;
     }
 </style>
-
+<link href="~/Style/StyleSheet.css" rel="stylesheet" />
 @using (Html.BeginForm("Create", "Index", FormMethod.Post))
 {
-    <table>
-        <tr>
-            <td>
-                @Html.LabelFor(model => model.TravelsName, "Travels Name")
-            </td>
-            <td>
-                @Html.TextBoxFor(Model => Model.TravelsName)
-                @*@Html.ValidationMessageFor(model => model.TravelsName)*@
-                <span style="color:red">
-                    @Html.ValidationMessageFor(Model => Model.TravelsName)
-                </span>
-            </td>
+<table>
+    <tr>
+        <td>
+            @Html.LabelFor(model => model.TravelsName, "Travels Name")
+        </td>
+        <td>
+            @Html.TextBoxFor(Model => Model.TravelsName)
+            @*@Html.ValidationMessageFor(model => model.TravelsName)*@
+            <span style="color:red">
+                @Html.ValidationMessageFor(Model => Model.TravelsName)
+            </span>
+        </td>
 
-        </tr>
-        <tr>
-            <td>
-                @Html.LabelFor(model => model.BusId, "Bus Id")
-            </td>
-            <td style="color:red">
-                @Html.TextBoxFor(Model => Model.BusId)
-                @Html.ValidationMessageFor(Model => Model.BusId)
-            </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.LabelFor(model => model.BusId, "Bus Id")
+        </td>
+        <td style="color:red">
+            @Html.TextBoxFor(Model => Model.BusId)
+            @Html.ValidationMessageFor(Model => Model.BusId)
+        </td>
 
-        </tr>
-        <tr>
-            <td>
-                @Html.LabelFor(model => model.SourceCity, "Source City")
-            </td>
-            <td>
-                @Html.TextBoxFor(Model => Model.SourceCity)
-            </td>
-        </tr>
-        <tr>
-            <td>
-                @Html.LabelFor(model => model.DestinationCity, "Destination City")
-            </td>
-            <td>
-                @Html.TextBoxFor(Model => Model.DestinationCity)
-            </td>
-        </tr>
-        <tr>
-            <td>
-                @Html.LabelFor(model => model.Price, "Price")
-            </td>
-            <td>
-                @Html.TextBoxFor(Model => Model.Price)
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <input type="submit" />
-            </td>
-            <td>
-                <a href="/Index/Index">Back</a>
-            </td>
-        </tr>
-    </table>
+    </tr>
+    <tr>
+        <td>
+            @Html.LabelFor(model => model.SourceCity, "Source City")
+        </td>
+        <td>
+            @Html.TextBoxFor(Model => Model.SourceCity)
+            @Html.ValidationMessageFor(Model => Model.SourceCity)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.LabelFor(model => model.DestinationCity, "Destination City")
+        </td>
+        <td>
+            @Html.TextBoxFor(Model => Model.DestinationCity)
+            @Html.ValidationMessageFor(Model => Model.DestinationCity)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.LabelFor(model => model.Price, "Price")
+        </td>
+        <td>
+            @Html.TextBoxFor(Model => Model.Price)
+            @Html.ValidationMessageFor(Model => Model.Price)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.LabelFor(model => model.BusType)
+        </td>
+        <td>
+            @Html.TextBoxFor(Model => Model.BusType)
+            @Html.ValidationMessageFor(Model => Model.BusType)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.LabelFor(model => model.SeatsAvailable)
+        </td>
+        <td>
+            @Html.TextBoxFor(Model => Model.SeatsAvailable)
+            @Html.ValidationMessageFor(Model => Model.SeatsAvailable)
+        </td>
+    </tr>
+  
+    <tr>
+        <td>
+            @Html.LabelFor(model => model.StartPoint)
+        </td>
+        <td>
+            @Html.TextBoxFor(Model => Model.StartPoint)
+            @Html.ValidationMessageFor(Model => Model.StartPoint)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.LabelFor(model => model.EndPoint)
+        </td>
+        <td>
+            @Html.TextBoxFor(Model => Model.EndPoint)
+            @Html.ValidationMessageFor(Model => Model.EndPoint)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <input type="submit" />
+        </td>
+        <td>
+            <a href="/Index/Index">Back</a>
+        </td>
+    </tr>
+</table>
 
 }

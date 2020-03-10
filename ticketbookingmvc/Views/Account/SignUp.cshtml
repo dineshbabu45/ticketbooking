@@ -1,4 +1,4 @@
-﻿@model BusBooking.Entity.Account
+﻿@model ticketbookingmvc.Models.SignUpViewModel
 
 @{
     ViewBag.Title = "SignUp";
@@ -12,58 +12,60 @@
                 padding: 15px;
             }
         </style>
-        @using (Html.BeginForm("Login", "Account", FormMethod.Post))
+        @using (Html.BeginForm("SignUp", "Account", FormMethod.Post))
         {
-            <div align="center">
-                <div class="input-container">
-                    @Html.LabelFor(Model => Model.Name)
-                    @*Enter your name :*@
-                    @Html.TextBoxFor(Model => Model.Name)
-                    @Html.ValidationMessageFor(model => model.Name)
+    <div align="center">
+        <div class="input-container">
+            @Html.LabelFor(Model => Model.Name)
+            @*Enter your name :*@
+            @Html.TextBoxFor(Model => Model.Name)
+            @Html.ValidationMessageFor(model => model.Name)
 
-                </div>
-                <div class="input-container">
+        </div>
+        <div class="input-container">
 
-                    @*Enter your Age :*@
-                    @Html.LabelFor(Model => Model.Age)
-                    @Html.TextBoxFor(Model => Model.Age)
-                    @Html.ValidationMessageFor(model => model.Age)
+            @*Enter your Age :*@
+            @Html.LabelFor(Model => Model.Age)
+            @Html.TextBoxFor(Model => Model.Age)
+            @Html.ValidationMessageFor(model => model.Age)
 
-                </div>
-                <div class="input-container">
+        </div>
+        <div class="input-container">
 
-                    @*Enter Your Email Id :*@
-                    @Html.LabelFor(Model => Model.EmailId)
-                    @Html.TextBoxFor(Model => Model.EmailId)
-                    @Html.ValidationMessageFor(model => model.EmailId)
-                </div>
-                <div class="input-container">
+            @*Enter Your Email Id :*@
+            @Html.LabelFor(Model => Model.EmailId)
+            @Html.TextBoxFor(Model => Model.EmailId)
+            @Html.ValidationMessageFor(model => model.EmailId)
+        </div>
+        <div class="input-container-gender">
 
-                    @*Choose Gender :*@
-                    @Html.LabelFor(Model => Model.Gender)
-                    @Html.RadioButtonFor(Model => Model.Gender, "Male",new {@class="gender"})Male
-                    @Html.RadioButtonFor(Model => Model.Gender, "Female")Female
-                    @Html.RadioButtonFor(Model => Model.Gender, "Others")Others
+            @*Choose Gender :*@
+            @Html.LabelFor(Model => Model.Gender)
+            @Html.RadioButtonFor(Model => Model.Gender, "Male", new { @class = "gender" })Male
+            @Html.RadioButtonFor(Model => Model.Gender, "Female", new { @class = "gender" })Female
+            @Html.RadioButtonFor(Model => Model.Gender, "Others", new { @class = "gender" })Others
 
 
-                </div>
-                <div class="input-container">
+        </div>
+        <div class="input-container">
 
-                    @*Enter Password :*@
-                    @Html.LabelFor(Model => Model.Password)
-                    @Html.TextBoxFor(Model => Model.Password, new { @type = "password" })
-                    @Html.ValidationMessageFor(model => model.Password)
+            @*Enter Password :*@
+            @Html.LabelFor(Model => Model.Password)
+            @Html.TextBoxFor(Model => Model.Password, new { @type = "password" })
+            @Html.ValidationMessageFor(model => model.Password)
 
-                </div>
-                <div class="input-container">
-                   
-                        <label>
-                            Already have an account?
-                            <a href="~/Account/Login">Login</a>
-                        </label>
-                    
-                    <input type="submit" />
-                </div>
-            </div>
+        </div>
+        <br>
+        <br>
+        <div class="input-container">
+            <input type="submit" value="SignUp" style="background:#07ad90" />
+        </div>
+
+        <div class="link">
+            Already have an account?
+            <a href="~/Account/Login">Login</a>
+        </div>
+      
+    </div>
         }
     </div>

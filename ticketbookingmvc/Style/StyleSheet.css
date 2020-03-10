@@ -20,11 +20,12 @@ table, th, td {
     //border:none;
 
 }
-    .Login span {
-        color:red;
-        padding-left: 30px;
-        /*position: absolute;*/
-        width: fit-content;
+    .Login span,.SignUp span {
+        color: red;
+        /*padding-left: 30px;*/
+        margin-left: 13px;
+        position: inherit;
+        /*width: fit-content;*/
     }
 .btnlogin {
     
@@ -36,25 +37,35 @@ table, th, td {
     border-radius: 3px;
     padding: 4px;
 }
-.gender {
-
+input#Gender {
+  
+    
+    margin-top: 34px;
+   
 }
 .input-container input {
     border: 0;
+    text-decoration-color: black;
     border-bottom: 2px solid #07ad90;
-    background: transparent;
+    background: rgba(250, 250, 250, 0.96);
     width: 87%;
     padding: 8px 0 5px 0;
     font-size: 16px;
-    color: #fff;
-   
+    color: black;
 }
     .input-container input:focus {
+        /*color: black;*/
         border: 0;
         outline: none;
         border-bottom: 2px solid #07ad90;
     }
-    /*.Login input {
+.input-container-gender{
+    padding:20px;
+}
+.input-container-gender label{
+    float:left;
+}
+/*.Login input {
         background:none;
         border: 0;
         border-bottom: 2px solid #07ad90;
@@ -64,14 +75,14 @@ table, th, td {
         outline:none;
         border-bottom: 2px solid #07ad90;
     }*/
-    .navbar-brand-home {
-        float: left;
-        height: 50px;
-        padding: 15px 15px;
-        font-size: 18px;
-        line-height: 20px;
-        text-decoration: none;
-    }
+.navbar-brand-home {
+    float: left;
+    height: 50px;
+    padding: 15px 15px;
+    font-size: 18px;
+    line-height: 20px;
+    text-decoration: none;
+}
 .navbar-brand {
     float: right;
     height: 50px;
@@ -114,10 +125,21 @@ table, th, td {
     position: absolute;
     width: 316px;
     /*height: 350px;*/
-    padding-top: 40px;
+    padding-top: 20px;
     background: rgba(250, 250, 250, 0.96);
     border: 3px solid #07ad90;
     border-radius: 3px;
     margin-left: 40%;
-    margin-top: 9%;
+    margin-top: 1%;
+}
+.SearchContainer{
+    text-align:center;
+}
+.SearchResult {
+    border: 1px solid;
+    margin-top: 1%;
+    margin-left: 6%;
+    text-align: center;
+    padding-top: 1%;
+    margin-right: 4%;
 }

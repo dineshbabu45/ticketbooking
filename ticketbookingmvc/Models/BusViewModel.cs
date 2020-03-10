@@ -1,18 +1,23 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Web;
 
-namespace BusBooking.Entity
+namespace ticketbookingmvc.Models
 {
-    public class Bus
+    public class BusViewModel
     {
-
+        [Required]
         public string TravelsName { get; set; }
-        [Key]
+
+        [Required]
         public int BusId { get; set; }
-
+        [Required]
         public string SourceCity { get; set; }
-
+        [Required]
         public string DestinationCity { get; set; }
-
+        [Required]
         public double Price { get; set; }
         public string BusType { get; set; }
         public byte SeatsAvailable { get; set; }

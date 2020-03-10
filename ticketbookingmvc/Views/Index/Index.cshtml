@@ -1,5 +1,4 @@
 ﻿
-
 @{
     ViewBag.Title = "Index";
 }
@@ -17,6 +16,10 @@
         <th>Source City</th>
         <th>Destination City</th>
         <th>Price</th>
+        <th>Bus Type</th>
+        <th>Seats Available</th>
+        <th>Start Point</th>
+        <th>End Point</th>
         <th>Action</th>
     </tr>
     @foreach (BusBooking.Entity.Bus bus in @Model)
@@ -27,6 +30,10 @@
             <td>@bus.SourceCity</td>
             <td>@bus.DestinationCity</td>
             <td>@bus.Price</td>
+            <td>@bus.BusType</td>
+            <td>@bus.SeatsAvailable</td>
+            <td>@bus.StartPoint</td>
+            <td>@bus.EndPoint</td>
             <td>
                 @Html.ActionLink("Edit /", "Edit", new { id = bus.BusId })
                 @Html.ActionLink("Delete", "Delete", new { id = bus.BusId })

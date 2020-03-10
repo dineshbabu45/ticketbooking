@@ -2,66 +2,77 @@
 using BusBooking.Entity;
 using System.Collections.Generic;
 using System.Web.Mvc;
+using System.Linq;
+using ticketbookingmvc.Models;
+using BusBooking.BL;
 
 namespace ticketbookingmvc.Controllers
 {
     public class IndexController : Controller
     {
         // GET: Index
-        BusRepository bookingRepository;
+        BookingBL bookingBL;
+        BusTicketBookingDbContext createContext;
         public IndexController()
         {
-            bookingRepository = new BusRepository();
+            bookingBL = new BookingBL();
+            new BusTicketBookingDbContext();
         }
         public ActionResult Index()
         {
-            IEnumerable<Bus> bus = bookingRepository.GetBusDetails();
+            IEnumerable<Bus> bus = bookingBL.GetBusDetails();
             return View(bus);
         }
-       
+
         public ActionResult Create()
         {
+
+           createContext.Buses.ToList();
             return View();
         }
         [HttpPost]
-        public ActionResult Create(Bus bus)
+        public ActionResult Create(BusViewModel busViewModel)
         {
 
-               
-            //bus.TravelsName = formCollection["TravelsName"];
-            //bus.BusId = Convert.ToInt32(formCollection["BusId"]);
-            //bus.SourceCity = formCollection["SourceCity"];
-            //bus.DestinationCity = formCollection["DestinationCity"];
-            //bus.Price = Convert.ToDouble(formCollection["Price"]);
-            if (ModelState.IsValid)                  //////////////////TryUpdateModel..
+            if (ModelState.IsValid)
             {
-                bookingRepository.AddBus(bus);
+                Bus bus = new Bus();
+                bus.BusId = busViewModel.BusId;
+                bus.BusType = busViewModel.BusType;
+                bus.TravelsName = busViewModel.TravelsName;
+                bus.SourceCity = busViewModel.SourceCity;
+                bus.DestinationCity = busViewModel.DestinationCity;
+                bus.Price = busViewModel.Price;
+                bus.SeatsAvailable = busViewModel.SeatsAvailable;
+                bus.StartPoint = busViewModel.StartPoint;
+                bus.EndPoint = busViewModel.EndPoint;
+               // bookingRepository.AddBus(bus);
+                createContext.Buses.Add(bus);
+                createContext.SaveChanges();
                 TempData["Message"] = "Bus detail added successfully!!!";
                 return RedirectToAction("Index");
 
             }
 
-
             return View();
-              //return RedirectToAction("Index");
-         
+
         }
         public ActionResult Delete(int id)
         {
-            bookingRepository.DeleteBus(id);
+            bookingBL.DeleteBus(id);
             TempData["Message"] = "Bus Detail deleted successfully";
             return RedirectToAction("Index");
         }
         [HttpGet]
         public ActionResult Edit(int id)
         {
-            Bus bus = bookingRepository.GetBusId(id);
-                return View(bus);
+            Bus bus = bookingBL.GetBusId(id);
+            return View(bus);
         }
         [HttpPost]
         public ActionResult Update(Bus bus)
         {
-            bookingRepository.EditBusDetails(bus);
+            bookingBL.EditBusDetails(bus);
             TempData["Message"] = "Bus Details Edited successfully!!";
             return RedirectToAction("Index");
         }

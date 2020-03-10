@@ -1,21 +1,23 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BusBooking.Entity
 {
     public class Account
     {
-        [Required]
-        [EmailAddress]
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int UserId { get; set; }
         public string EmailId { get; set; }
-        [Required]
-        [MaxLength(16)]
+       
         public string Password { get; set; }
-        [Required]
+        
         public string Name { get; set; }
-        [Required]
+      
         public byte Age { get; set; }
-        [Required]
+        
         public string Gender { get; set; }
+        public bool IsAdmin { get; set; }
     }
 }

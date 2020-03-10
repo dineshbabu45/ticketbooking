@@ -18,12 +18,13 @@
         <div class="container">
            <div>
                 @Html.ActionLink("Home", "Index", "Index", new { area = "" }, new { @class = "navbar-brand-home" })
-
+    
            </div>
             <div>
                 @Html.ActionLink("Login", "Login", "Account", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Search", "Search", "Booking", new { area = "" }, new { @class = "navbar-brand" })
             </div>
-               @* @Html.ActionLink("SignUp", "SignUp", "Account", new { area = "" }, new { @class = "navbar-brand" })*@
+              
             </div>
 
   
@@ -33,10 +34,7 @@
 
             @RenderBody()
         </div>
-        @*<hr />
-            <footer>
-                <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-            </footer>*@
+      
     </div>
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
