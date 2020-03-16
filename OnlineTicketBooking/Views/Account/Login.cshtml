@@ -1,0 +1,51 @@
+﻿@model OnlineTicketBooking.Models.LoginViewModel
+@*@Html.Partial("Header")*@
+@{
+    ViewBag.Title = "Login";
+
+}
+@ViewBag.Message
+<div class="Login">
+
+    <h2 align="center">Login<br /><br /></h2>
+
+    <link href="~/Style/StyleSheet.css" rel="stylesheet" />
+
+    @using (Html.BeginForm("Login", "Account", FormMethod.Post))
+    {
+
+        <div align="center">
+            <div class="input-container">
+
+                @Html.LabelFor(model => model.EmailId, "Email Id")
+                @Html.TextBoxFor(Model => Model.EmailId)
+
+                <div>@Html.ValidationMessageFor(model => model.EmailId)</div>
+
+            </div>
+            <div class="input-container">
+
+                @Html.LabelFor(model => model.Password)
+                @Html.TextBoxFor(Model => Model.Password, new { @type = "password", @maxlength = "16" })
+                <div>   @Html.ValidationMessageFor(Model => Model.Password)</div>
+
+            </div>
+            <br />
+            <br />
+            <div class="input-container">
+
+
+                <input type="submit" value="LOGIN" class="btnlogin" style="background:#07ad90" />
+
+            </div>
+            <div class="link">
+
+                <div>Don't have an account? <a href="~/Account/SignUp">SignUp</a></div>
+
+            </div>
+
+        </div>
+
+    }
+
+</div>

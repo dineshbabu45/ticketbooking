@@ -1,0 +1,44 @@
+﻿@model OnlineTicketBooking.Models.SearchViewModel
+@*@Html.Partial("AfterLogin")*@
+
+@{
+    ViewBag.Title = "Index";
+}
+<link href="~/Style/StyleSheet.css" rel="stylesheet" />
+
+@using (Html.BeginForm("Search", "Booking", FormMethod.Post))
+{
+    <div>
+        <div class="SearchContainer">
+
+            @Html.TextBoxFor(Model => Model.SourceCity, new { placeholder = "From" })
+
+            @Html.TextBoxFor(Model => Model.DestinationCity, new { placeholder = "To" })
+            
+                    @Html.TextBoxFor(Model => Model.Date, new { type = "date" })
+                   
+               
+            <input type="submit" value="Search Buses" />
+            <div>
+                @Html.ValidationMessageFor(Model => Model.SourceCity)
+
+                @Html.ValidationMessageFor(Model => Model.DestinationCity)
+                @Html.ValidationMessageFor(Model => Model.Date)
+            </div>
+        </div>
+
+        <div>
+            .
+
+            @if (Model != null)
+            {
+                foreach (var item in Model.Buses)
+                {
+                    <div class="SearchResult"><div class="TName">@item.TravelsName</div> <div class="BPrice">@item.Price</div> <div class="BPrice">@item.StartPoint</div><div class="BPrice">@item.EndPoint</div><div class="BPrice">@item.BusType</div>  <div class="BPrice">@item.Date</div> <input type="button" value="ViewSeats" /></div>
+                }
+            }
+
+        </div>
+    </div>
+}
+

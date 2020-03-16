@@ -1,0 +1,17 @@
+﻿@if (Request.IsAuthenticated)
+{
+
+
+
+    @Html.ActionLink("LogOut", "Search", "Booking", new { @class = "navbar-brand" })
+    @Html.ActionLink("Search", "Search", "Booking", new { area = "" }, new { @class = "navbar-brand" })
+
+}
+else
+{
+
+    @Html.ActionLink("Log in", "Login", "Account", new { @class = "navbar-brand" })
+    @Html.ActionLink("Search", "Search", "Booking", new { area = "" }, new { @class = "navbar-brand" })
+
+}
+

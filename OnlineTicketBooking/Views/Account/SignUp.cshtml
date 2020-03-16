@@ -1,0 +1,77 @@
+﻿@model OnlineTicketBooking.Models.SignUpViewModel
+@*@Html.Partial("Header")*@
+@{
+    ViewBag.Title = "SignUp";
+}
+<div class="SignUp">
+    <link href="~/Style/StyleSheet.css" rel="stylesheet" />
+    <h2 align="center">SignUp</h2>
+    <style>
+        table, td {
+            border: 0 15px;
+            padding: 15px;
+        }
+    </style>
+    @using (Html.BeginForm("SignUp", "Account", FormMethod.Post))
+    {
+        <div align="center">
+            <div class="input-container">
+                @Html.LabelFor(Model => Model.Name)
+                @*Enter your name :*@
+                @Html.TextBoxFor(Model => Model.Name)
+                <div> @Html.ValidationMessageFor(model => model.Name)</div>
+
+            </div>
+            <div class="input-container">
+
+                @*Enter your Age :*@
+                @Html.LabelFor(Model => Model.Age)
+                @Html.TextBoxFor(Model => Model.Age)
+                <div>@Html.ValidationMessageFor(model => model.Age)</div>
+
+            </div>
+            <div class="input-container">
+
+                @*Enter Your Email Id :*@
+                @Html.LabelFor(Model => Model.EmailId)
+                @Html.TextBoxFor(Model => Model.EmailId)
+                <div> @Html.ValidationMessageFor(model => model.EmailId)</div>
+            </div>
+            <div class="input-container-gender">
+
+                @*Choose Gender :*@
+                @Html.LabelFor(Model => Model.Gender)
+                @Html.RadioButtonFor(Model => Model.Gender, "Male", new { @class = "gender" })Male
+                @Html.RadioButtonFor(Model => Model.Gender, "Female", new { @class = "gender" })Female
+                @Html.RadioButtonFor(Model => Model.Gender, "Others", new { @class = "gender" })Others
+
+
+            </div>
+            <div class="input-container">
+
+                @*Enter Password :*@
+                @Html.LabelFor(Model => Model.Password)
+                @Html.TextBoxFor(Model => Model.Password, new { @type = "password" })
+                <div> @Html.ValidationMessageFor(model => model.Password)</div>
+
+            </div> 
+            <div class="input-container">
+                @Html.LabelFor(Model => Model.ConfirmPassword)
+                @Html.TextBoxFor(Model => Model.ConfirmPassword, new { @type = "password" })
+                <div> @Html.ValidationMessageFor(model => model.ConfirmPassword)</div>
+
+            </div>
+            <br>
+            <br>
+            <div class="input-container">
+                <input type="submit" value="SignUp" style="background:#07ad90" />
+            </div>
+
+            <div class="link">
+                Already have an account?
+                <a href="~/Account/Login">Login</a>
+            </div>
+
+        </div>
+    }
+</div>

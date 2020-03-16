@@ -1,4 +1,4 @@
-﻿namespace BokkingRepository.Migrations
+﻿namespace BusBookingRepository.Migrations
 {
     using System;
     using System.Data.Entity;
@@ -9,7 +9,7 @@
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
             ContextKey = "BusBooking.Repository.BusTicketBookingDbContext";
         }
 

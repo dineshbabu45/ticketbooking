@@ -12,7 +12,8 @@ namespace BusBooking.Entity
         public string EmailId { get; set; }
        
         public string Password { get; set; }
-        
+       
+        public string ConfirmPassword { get; set; }
         public string Name { get; set; }
       
         public byte Age { get; set; }

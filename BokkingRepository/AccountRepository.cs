@@ -23,9 +23,9 @@ namespace BusBooking.Repository
             
                 using (BusTicketBookingDbContext accountContext = new BusTicketBookingDbContext())
                 {
-                List<Bus> buses = accountContext.Buses.Find();
+                Account result = accountContext.Accounts.Where(temp=>temp.EmailId==account.EmailId&&temp.Password == account.Password).FirstOrDefault();
 
-                    return buses;
+                    return result;
                 }
 
             

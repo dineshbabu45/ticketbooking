@@ -7,19 +7,11 @@ namespace BusBooking.Repository
     public class BusRepository
     {
        
-        public static List<Bus> buses = new List<Bus>();
-      
-        static BusRepository()
-        {
-            buses.Add(new Bus { TravelsName = "A1 Travels", BusId = 1, SourceCity = "Chennai", DestinationCity = "CBE", Price = 1500,SeatsAvailable=40,StartPoint="Gandhipuram",EndPoint="Koyambedu" });
-            buses.Add(new Bus { TravelsName = "Orange Travels", BusId = 2, SourceCity = "CBE", DestinationCity = "Trichy", Price = 1000, SeatsAvailable = 40, StartPoint = "Gandhipuram", EndPoint = "Trichy" });
-            buses.Add(new Bus { TravelsName = "KPR", BusId = 3, SourceCity = "Chennai", DestinationCity = "Bangalore", Price = 900, SeatsAvailable = 40, StartPoint = "Koyambedu", EndPoint = "Bangalore" });
-        }
-       public List<Bus> SearchBus(string sourceCity, string destinationCity)
+       public List<Bus> SearchBus(string sourceCity, string destinationCity,string Date)
         {
             using(BusTicketBookingDbContext busTicketBookingDb = new BusTicketBookingDbContext())
             {
-                List<Bus> buses = busTicketBookingDb.Buses.Where(temp => temp.SourceCity == sourceCity && temp.DestinationCity == destinationCity).ToList();
+                List<Bus> buses = busTicketBookingDb.Buses.Where(temp => temp.SourceCity == sourceCity && temp.DestinationCity == destinationCity&&temp.Date==Date).ToList();
 
                 return buses;
             }
@@ -36,25 +28,49 @@ namespace BusBooking.Repository
         }
         public void AddBus(Bus bus)
         {
-            buses.Add(bus);
+            using (BusTicketBookingDbContext busTicketBookingDb = new BusTicketBookingDbContext())
+            {
+                busTicketBookingDb.Buses.ToList();
+                busTicketBookingDb.Buses.Add(bus);
+                busTicketBookingDb.SaveChanges();
+               
+            }
         }
         public Bus GetBusId(int busId)
         {
-            return buses.Find(id => id.BusId == busId);
+            using (BusTicketBookingDbContext busTicketBookingDb = new BusTicketBookingDbContext())
+            {
+                return busTicketBookingDb.Buses.Find(busId);
+            }
         }
         public void DeleteBus(int busId)
         {
-            Bus bus = GetBusId(busId);
-            if (bus != null)
-                buses.Remove(bus);
+            using (BusTicketBookingDbContext busTicketBookingDb = new BusTicketBookingDbContext())
+            {
+                Bus bus = busTicketBookingDb.Buses.Find(busId);
+                if (bus != null)
+                    busTicketBookingDb.Buses.Remove(bus);
+                busTicketBookingDb.SaveChanges();
+            }
         }
         public void EditBusDetails(Bus bus)
         {
-            Bus updateBus = GetBusId(bus.BusId);
-            updateBus.SourceCity = bus.SourceCity;
-            updateBus.DestinationCity = bus.DestinationCity;
-            updateBus.Price = bus.Price;
-
+            using (BusTicketBookingDbContext busTicketBookingDb = new BusTicketBookingDbContext())
+            {
+               //Bus updateBus = GetBusId(bus.BusId);
+                Bus updateBus = busTicketBookingDb.Buses.Find(bus.BusId);
+                updateBus.TravelsName = bus.TravelsName;
+                updateBus.SourceCity = bus.SourceCity;
+                updateBus.DestinationCity = bus.DestinationCity;
+                updateBus.Price = bus.Price;
+                updateBus.BusType = bus.BusType;
+                updateBus.SeatsAvailable = bus.SeatsAvailable;
+                updateBus.StartPoint = bus.StartPoint;
+                updateBus.EndPoint = bus.EndPoint;
+                updateBus.Date = bus.Date;
+                busTicketBookingDb.SaveChanges();
+                
+            }
         }
     }
 }

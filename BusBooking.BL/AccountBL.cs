@@ -1,10 +1,6 @@
 ﻿using BusBooking.Entity;
 using BusBooking.Repository;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace BusBooking.BL
 {
@@ -19,9 +15,9 @@ namespace BusBooking.BL
         {
             accountRepository.Signup(account);
         } 
-        public void Login(Account account)
+        public Account Login(Account account)
         {
-            accountRepository.Signup(account);
+            return accountRepository.Login(account);
         }
     }
 }

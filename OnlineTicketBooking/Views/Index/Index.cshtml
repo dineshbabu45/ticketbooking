@@ -1,0 +1,47 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+@*@Html.Partial("Header")*@
+<link href="~/Style/StyleSheet.css" rel="stylesheet" />
+@Html.ActionLink("Create new Travels Details", "Create")
+<br />
+@if (TempData["Message"] != null)
+{
+    @Html.Label((string)TempData["Message"])
+}
+<table align="center" border="1">
+    <tr>
+        <th>TravelsName</th>
+        <th>BusId</th>
+        <th>Source City</th>
+        <th>Destination City</th>
+        <th>Price</th>
+        <th>Date</th>
+        <th>Bus Type</th>
+        <th>Seats Available</th>
+        <th>Start Point</th>
+        <th>End Point</th>
+        <th>Action</th>
+    </tr>
+    @foreach (BusBooking.Entity.Bus bus in @Model)
+    {
+        <tr>
+            <td>@bus.TravelsName</td>
+            <td>@bus.BusId</td>
+            <td>@bus.SourceCity</td>
+            <td>@bus.DestinationCity</td>
+            <td>@bus.Price</td>
+            <td>@bus.Date</td>
+            <td>@bus.BusType</td>
+            <td>@bus.SeatsAvailable</td>
+            <td>@bus.StartPoint</td>
+            <td>@bus.EndPoint</td>
+            <td>
+                @Html.ActionLink("Edit /", "Edit", new { id = bus.BusId })
+                @Html.ActionLink("Delete", "Delete", new { id = bus.BusId })
+            </td>
+        </tr>
+    }
+</table>
+

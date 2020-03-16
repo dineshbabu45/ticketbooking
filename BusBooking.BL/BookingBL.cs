@@ -11,12 +11,16 @@ namespace BusBooking.BL
         {
             busRepository = new BusRepository();
         }
-        public IEnumerable<Bus> SearchBus(string sourceCity, string destinationCity)
+        public IEnumerable<Bus> SearchBus(string sourceCity, string destinationCity,string date)
         {
-            IEnumerable<Bus> buses = busRepository.SearchBus(sourceCity, destinationCity);
+            IEnumerable<Bus> buses = busRepository.SearchBus(sourceCity, destinationCity,date);
             return buses;
         }
-        public IEnumerable<Bus> GetBusDetails()
+        public void AddBus(Bus bus)
+        {
+            busRepository.AddBus(bus);
+        }
+            public IEnumerable<Bus> GetBusDetails()
         {
             IEnumerable<Bus> buses = busRepository.GetBusDetails();
             return buses;

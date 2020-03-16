@@ -1,0 +1,21 @@
+﻿@model BusBooking.Entity.Bus
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+@using (Html.BeginForm("Create", "Index", FormMethod.Post))
+{
+    <table border="1">
+        <tr>
+            <td>
+                Id :
+            </td>
+            <td>
+                @Html.TextBoxFor(id => Model.BusId)
+            </td>
+        </tr>
+        <tr>
+        </tr>
+    </table>
+}
