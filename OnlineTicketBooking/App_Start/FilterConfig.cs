@@ -1,4 +1,5 @@
-﻿using System.Web;
+﻿using OnlineTicketBooking.Filter;
+using System.Web;
 using System.Web.Mvc;
 
 namespace SampleMvc
@@ -7,7 +8,8 @@ namespace SampleMvc
     {
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
         {
-            filters.Add(new HandleErrorAttribute());
+            filters.Add(new LogCustomExceptionFilter());
         }
+
     }
 }

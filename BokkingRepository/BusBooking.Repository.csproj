@@ -55,15 +55,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AccountRepository.cs" />
+    <Compile Include="BookingRepository.cs" />
     <Compile Include="BusTicketBookingDbContext.cs" />
     <Compile Include="BusRepository.cs" />
-    <Compile Include="Migrations\202003100443201_InitialCreate.cs" />
-    <Compile Include="Migrations\202003100443201_InitialCreate.designer.cs">
-      <DependentUpon>202003100443201_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202003100647408_BusTicketBookingDB.cs" />
-    <Compile Include="Migrations\202003100647408_BusTicketBookingDB.designer.cs">
-      <DependentUpon>202003100647408_BusTicketBookingDB.cs</DependentUpon>
+    <Compile Include="CategoryRepository.cs" />
+    <Compile Include="Migrations\202003271044160_DB.cs" />
+    <Compile Include="Migrations\202003271044160_DB.designer.cs">
+      <DependentUpon>202003271044160_DB.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -80,11 +78,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202003100443201_InitialCreate.resx">
-      <DependentUpon>202003100443201_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202003100647408_BusTicketBookingDB.resx">
-      <DependentUpon>202003100647408_BusTicketBookingDB.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202003271044160_DB.resx">
+      <DependentUpon>202003271044160_DB.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

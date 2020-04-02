@@ -1,8 +1,7 @@
 ﻿@model OnlineTicketBooking.Models.BusViewModel
 
-    @*@Html.Partial("Header")*@
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Enter New Bus Detail";
 }
 <style>
     table, th, td {
@@ -10,8 +9,9 @@
         padding: 15px;
     }
 </style>
+<h2>@ViewBag.Title</h2>
 <link href="~/Style/StyleSheet.css" rel="stylesheet" />
-@using (Html.BeginForm("Create", "Index", FormMethod.Post))
+@using (Html.BeginForm("Create", "Bus", FormMethod.Post))
 {
 <table>
     <tr>
@@ -20,7 +20,7 @@
         </td>
         <td>
             @Html.TextBoxFor(Model => Model.TravelsName)
-            @*@Html.ValidationMessageFor(model => model.TravelsName)*@
+
             <span style="color:red">
                 @Html.ValidationMessageFor(Model => Model.TravelsName)
             </span>
@@ -69,8 +69,17 @@
             @Html.LabelFor(model => model.Date)
         </td>
         <td>
-            @Html.TextBoxFor(Model => Model.Date,new { type = "date" })
+            @Html.TextBoxFor(Model => Model.Date, new { type = "date" })
             @Html.ValidationMessageFor(Model => Model.Date)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.LabelFor(model => model.BusTime)
+        </td>
+        <td>
+            @Html.TextBoxFor(Model => Model.BusTime,new { type = "time" })
+            @Html.ValidationMessageFor(Model => Model.BusTime)
         </td>
     </tr>
     <tr>
@@ -115,7 +124,7 @@
             <input type="submit" />
         </td>
         <td>
-            <a href="/Index/Index">Back</a>
+            <a href="/Bus/Index">Back</a>
         </td>
     </tr>
 </table>

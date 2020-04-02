@@ -10,5 +10,7 @@ namespace BusBooking.Repository
 
         public DbSet<Account> Accounts { get; set; }
        public DbSet<Bus> Buses { get; set; }
+        public DbSet<Booking> Bookings { get; set; }
+        public DbSet<Category> Categories { get; set; }
     }
 }

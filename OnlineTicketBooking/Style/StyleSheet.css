@@ -90,6 +90,8 @@ input#Gender {
     font-size: 18px;
     line-height: 20px;
     text-decoration: none;
+    color: rgba(250, 250, 250, 0.96);
+    /*border-bottom: 3px solid #fff !important;*/
 }
 
 .navbar-brand {
@@ -98,6 +100,7 @@ input#Gender {
     padding: 15px 15px;
     font-size: 18px;
     line-height: 20px;
+    color: rgba(250, 250, 250, 0.96);
 }
 
 .input-container label {
@@ -115,13 +118,16 @@ input#Gender {
 }
 
 .navbar-brand:hover,
-.navbar-brand:focus {
+.navbar-brand:focus,
+.navbar-brand:active {
     text-decoration: none;
+    border-bottom: 3px solid #fff !important;
 }
 
 .navbar-brand-home:hover,
-.navbar-brand:focus {
+.navbar-brand-home:focus {
     text-decoration: none;
+    border-bottom: 3px solid #fff !important;
 }
 
 .container {
@@ -130,6 +136,7 @@ input#Gender {
     margin-right: auto;
     margin-left: auto;*/
     width: 100%;
+    background: #07ad90;
 }
 
     .container div {
@@ -151,6 +158,7 @@ input#Gender {
 
 .SearchContainer {
     text-align: center;
+    margin-top:2%;
 }
 
 .SearchResult {
@@ -163,5 +171,9 @@ input#Gender {
     border: 1px solid #ddd;
     margin-top: 20px;
     padding: 10px 0 0;
+}
+.help {
+    width: 83%;
+    margin-left: 9%;
 }
 

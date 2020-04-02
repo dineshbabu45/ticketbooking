@@ -46,6 +46,8 @@
   <ItemGroup>
     <Compile Include="AccountBL.cs" />
     <Compile Include="BookingBL.cs" />
+    <Compile Include="BusBL.cs" />
+    <Compile Include="CategoryBL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

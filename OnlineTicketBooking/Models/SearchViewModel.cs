@@ -10,6 +10,7 @@ namespace OnlineTicketBooking.Models
         public string SourceCity { get; set; }
         [Required(ErrorMessage = "Reqiured")]
         public string DestinationCity { get; set; }
+        [Required(ErrorMessage = "Reqiured")]
         public string Date { get; set; }
         public IEnumerable<Bus> Buses { get; set; }
     }

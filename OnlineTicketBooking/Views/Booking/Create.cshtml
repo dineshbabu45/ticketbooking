@@ -1,0 +1,47 @@
+﻿@model OnlineTicketBooking.Models.BookingViewModel
+
+@{
+    ViewBag.Title = "Create";
+}
+<div class="SignUp">
+    <link href="~/Style/StyleSheet.css" rel="stylesheet" />
+    <h2 align="center">Cart</h2>
+
+    @using (Html.BeginForm("Create", "Booking", FormMethod.Post))
+    {
+        <div align="center">
+
+            @Html.ValueFor(Model => Model.TravelsName)
+            <div class="input-container">
+                @Html.LabelFor(Model => Model.BusId)
+
+                @Html.TextBoxFor(Model => Model.BusId)
+                <div> @Html.ValidationMessageFor(model => model.BusId)</div>
+
+            </div>
+
+            <div class="input-container">
+
+                @Html.LabelFor(Model => Model.SeatNumbers)
+                @Html.TextBoxFor(Model => Model.SeatNumbers)
+
+                <div> @Html.ValidationMessageFor(model => model.SeatNumbers)</div>
+
+
+            </div>
+
+            <br>
+            <br>
+            <div class="input-container">
+                <input type="submit" value="Proceed to book" style="background:#07ad90" />
+            </div>
+
+            <div class="link">
+
+                <a href="~/Account/Login">Your Order Details</a>
+            </div>
+
+        </div>
+    }
+</div>
+

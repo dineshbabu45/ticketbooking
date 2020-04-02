@@ -3,9 +3,9 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title</title>
     @using System.Web.Optimization
-    @*<link href="~/Content/Site.css" rel="stylesheet" type="text/css" />*@
+  
     <link href="~/Style/StyleSheet.css" rel="stylesheet" />
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
 
@@ -16,15 +16,21 @@
 <body>
     
         <div class="container">
-           <div>
-                @Html.ActionLink("Home", "Index", "Index", new { area = "" }, new { @class = "navbar-brand-home" })
-    
-           </div>
-           <div>
-               @Html.Partial("_LoginPartial")
-               @*@Html.ActionLink("Login", "Login", "Account", new { area = "" }, new { @class = "navbar-brand" })*@
-               @*@Html.ActionLink("Search", "Search", "Booking", new { area = "" }, new { @class = "navbar-brand" })*@
-           </div>
+            <div>
+                @Html.ActionLink("Home", "Search", "Booking", new { area = "" }, new { @class = "navbar-brand-home" })
+               
+
+            </div>
+            <div>
+                @Html.Partial("_LoginPartial")
+                @Html.ActionLink("Need Help?", "Help", "Booking", new { area = "" }, new { @class = "navbar-brand" })
+                @if (System.Web.HttpContext.Current.User.IsInRole("True"))
+                {
+                    @Html.ActionLink("Manage Bus", "Index", "Bus", null, new { @class = "navbar-brand-home" })
+                    @Html.ActionLink("Category", "Index", "Category", null, new { @class = "navbar-brand-home" })
+                    @Html.ActionLink("Add Category", "AddCategory", "Category", null, new { @class = "navbar-brand-home" })
+                }
+            </div>
               
             </div>
 

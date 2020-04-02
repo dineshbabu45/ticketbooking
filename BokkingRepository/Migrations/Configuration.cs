@@ -10,7 +10,6 @@
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
-            ContextKey = "BusBooking.Repository.BusTicketBookingDbContext";
         }
 
         protected override void Seed(BusBooking.Repository.BusTicketBookingDbContext context)

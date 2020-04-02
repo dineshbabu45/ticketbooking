@@ -1,17 +1,16 @@
-﻿@if (Request.IsAuthenticated)
+﻿
+@if (Request.IsAuthenticated)
 {
-
-
-
-    @Html.ActionLink("LogOut", "Search", "Booking", new { @class = "navbar-brand" })
-    @Html.ActionLink("Search", "Search", "Booking", new { area = "" }, new { @class = "navbar-brand" })
-
+    
+    @Html.ActionLink("Logout", "LogOut", "Account", new { area = "" }, new { @class = "navbar-brand" })
+    @Html.ActionLink("Profile", "MyProfile", "Account", new { area = "" }, new { @class = "navbar-brand" })
+  
 }
 else
 {
 
-    @Html.ActionLink("Log in", "Login", "Account", new { @class = "navbar-brand" })
-    @Html.ActionLink("Search", "Search", "Booking", new { area = "" }, new { @class = "navbar-brand" })
+    @Html.ActionLink("Login", "Login", "Account", new { area = "" }, new { @class = "navbar-brand" })
+   
 
 }
 

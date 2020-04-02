@@ -1,0 +1,32 @@
+﻿
+@{
+    ViewBag.Title = "Category";
+}
+    <link href="~/Style/StyleSheet.css" rel="stylesheet" />
+    <h2>Category</h2>
+    <table border="1">
+        <tr>
+            <th>
+                Category Id
+            </th>
+            <th>
+                Category Name
+            </th>
+            <th>
+                Action
+            </th>
+        </tr>
+        @foreach (BusBooking.Entity.Category category in @Model)
+        {
+            <tr>
+                <td>            @category.CategoryId        </td>
+                <td>            @category.CategoryName        </td>
+                <td>
+                    @Html.ActionLink("Edit /", "Edit", new { id = category.CategoryId })
+                    @Html.ActionLink("Delete", "Delete", new { id = category.CategoryId })
+                </td>
+                
+            </tr>
+        }
+    </table>
+

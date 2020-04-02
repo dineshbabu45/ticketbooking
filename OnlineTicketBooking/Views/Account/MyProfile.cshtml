@@ -1,0 +1,47 @@
+﻿@model OnlineTicketBooking.Models.EditUserViewModel
+
+@{
+    ViewBag.Title = "MyProfile";
+}
+    <link href="~/Style/StyleSheet.css" rel="stylesheet" />
+    <div class="row">
+        <div class="col-sm-12">
+            <h1>Change Profile</h1>
+            <form novalidate="novalidate" action="/account/changeprofile" method="post" class="needs-validation">
+                @Html.AntiForgeryToken()
+                <div class="form-row">
+                    <div class="form-group col-sm-12">
+                        <label for="txtName">Name</label>
+                        <input type="text" class="form-control" id="txtName" placeholder="Enter name" name="Name" required="required" pattern="^[a-zA-Z ]*$" autofocus="autofocus" value="@Model.Name" />
+
+                    </div>
+                </div>
+
+                @Html.TextBoxFor(model => model.UserId, new { @class = "hidden" })
+                <div class="form-row">
+
+                    <div class="form-group col-sm-6">
+                        <label for="txtMobile">Age</label>
+                        <input type="number" class="form-control" id="txtName" placeholder="Age" name="Age" required="required" value="@Model.Age" />
+
+                    </div>
+                    <div class="form-group col-sm-6">
+                        @Html.LabelFor(Model => Model.Gender)
+                        @Html.RadioButtonFor(Model => Model.Gender, "Male", new { @class = "gender" })Male
+                        @Html.RadioButtonFor(Model => Model.Gender, "Female", new { @class = "gender" })Female
+                        @Html.RadioButtonFor(Model => Model.Gender, "Others", new { @class = "gender" })Others
+
+                    </div>
+                    <div class="form-group col-sm-12" ><legend align="center">Contact Details</legend></div>
+                </div>
+                <div class="form-group col-sm-12">
+                    <label for="txtEmail">Email</label>
+                    @Html.HiddenFor(temp => temp.EmailId)
+                    <span class="form-control">@Model.EmailId</span>
+                </div>
+
+                @Html.ValidationSummary()
+                <button type="submit" class="btn btn-primary">Update Profile</button>
+            </form>
+        </div>
+    </div>

@@ -1,13 +1,13 @@
-﻿@model BusBooking.Entity.Bus
-@*@Html.Partial("Header")*@
+﻿@model OnlineTicketBooking.Models.BusViewModel
+
 @{
     ViewBag.Title = "Edit";
 }
 <link href="~/Style/StyleSheet.css" rel="stylesheet" />
-<h2>Edit</h2>
+<h2> @ViewBag.Title</h2>
 
 
-@using (Html.BeginForm("Update", "Index", FormMethod.Post))
+@using (Html.BeginForm("Update", "Bus", FormMethod.Post))
 {
     @Html.HiddenFor(Model => Model.BusId)
     @Html.TextBoxFor(model => model.BusId, new { @class = "hidden" })
@@ -74,6 +74,15 @@
     </tr>
     <tr>
         <td>
+            @Html.LabelFor(model => model.BusTime)
+        </td>
+        <td>
+            @Html.TextBoxFor(Model => Model.BusTime,new { type="time"})
+            @Html.ValidationMessageFor(Model => Model.BusTime)
+        </td>
+    </tr>
+    <tr>
+        <td>
             @Html.LabelFor(model => model.StartPoint)
         </td>
         <td>
@@ -97,7 +106,7 @@
             <input type="submit" value="Update" />
         </td>
         <td>
-            <a href="~/Index/Index">Back</a>
+            <a href="~/Bus/Index">Back</a>
 
         </td>
     </tr>

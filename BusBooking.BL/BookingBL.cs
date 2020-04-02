@@ -1,42 +1,34 @@
 ﻿using BusBooking.Entity;
 using BusBooking.Repository;
+using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace BusBooking.BL
 {
-    public class BookingBL
+    public interface IBookingBL
     {
-        BusRepository busRepository;
+        Bus GetBusId(int busId);
+        void AddBooking(Booking bus);
+    }
+    public class BookingBL:IBookingBL
+    {
+        BookingRepository bookingRepository;
         public BookingBL()
         {
-            busRepository = new BusRepository();
-        }
-        public IEnumerable<Bus> SearchBus(string sourceCity, string destinationCity,string date)
-        {
-            IEnumerable<Bus> buses = busRepository.SearchBus(sourceCity, destinationCity,date);
-            return buses;
-        }
-        public void AddBus(Bus bus)
-        {
-            busRepository.AddBus(bus);
-        }
-            public IEnumerable<Bus> GetBusDetails()
-        {
-            IEnumerable<Bus> buses = busRepository.GetBusDetails();
-            return buses;
-        }
-        public void DeleteBus(int busId)
-        {
-            busRepository.DeleteBus(busId);
+            bookingRepository = new BookingRepository();
         }
         public Bus GetBusId(int busId)
         {
-           Bus buses = busRepository.GetBusId(busId);
-            return buses;
+            Bus bus = bookingRepository.GetBusId(busId);
+
+            return bus;
         }
-        public void EditBusDetails(Bus bus)
+        public void AddBooking(Booking bus)
         {
-            busRepository.EditBusDetails(bus);
+            bookingRepository.AddBooking(bus);
         }
     }
 }

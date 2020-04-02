@@ -1,3 +1,4 @@
+using SampleMvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +14,7 @@ namespace OnlineTicketBooking
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();
+            FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
         }
         protected void Application_PostAuthenticateRequest(Object sender, EventArgs e)
@@ -23,10 +25,11 @@ namespace OnlineTicketBooking
                 FormsAuthenticationTicket authTicket = FormsAuthentication.Decrypt(authCookie.Value);
                 if (authTicket != null && !authTicket.Expired)
                 {
-                    var roles = authTicket.UserData.Split(',');
+                    var roles = authTicket.UserData.Split();
                     HttpContext.Current.User = new System.Security.Principal.GenericPrincipal(new FormsIdentity(authTicket), roles);
                 }
             }
+
         }
     }
 }

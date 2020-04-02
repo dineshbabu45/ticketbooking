@@ -4,29 +4,33 @@ using System.Web.Mvc;
 using OnlineTicketBooking.Models;
 using BusBooking.BL;
 using AutoMapper;
+using OnlineTicketBooking.Filter;
 
 namespace OnlineTicketBooking.Controllers
 {
-    public class IndexController : Controller
+    [LogCustomExceptionFilter]
+    [Authorize(Roles = "True")]
+    public class BusController : Controller
     {
         // GET: Index
-        BookingBL bookingBL;
-        public IndexController()
+        BusBL busBL;
+        public BusController()
         {
-            bookingBL = new BookingBL();
+            busBL = new BusBL();
         }
-        public ActionResult Index()
+        
+        public ActionResult Index() //show all bus details from database
         {
-            IEnumerable<Bus> bus = bookingBL.GetBusDetails();
+            IEnumerable<Bus> bus = busBL.GetBusDetails();
             return View(bus);
         }
-
+        
         public ActionResult Create()
         {
             return View();
         }
         [HttpPost]
-        public ActionResult Create(BusViewModel busViewModel)
+        public ActionResult Create(BusViewModel busViewModel) //adding new bus details
         {
 
             if (ModelState.IsValid)
@@ -38,7 +42,7 @@ namespace OnlineTicketBooking.Controllers
                 var bus = mapper.Map<BusViewModel, Bus>(busViewModel);
 
                 
-                 bookingBL.AddBus(bus);
+                 busBL.AddBus(bus);
 
                 TempData["Message"] = "Bus detail added successfully!!!";
                 return RedirectToAction("Index");
@@ -50,15 +54,20 @@ namespace OnlineTicketBooking.Controllers
         }
         public ActionResult Delete(int id)
         {
-            bookingBL.DeleteBus(id);
+            busBL.DeleteBus(id);
             TempData["Message"] = "Bus Detail deleted successfully";
             return RedirectToAction("Index");
         }
         [HttpGet]
-        public ActionResult Edit(int id)
+        public ActionResult Edit(int id) //edit bus details
         {
-            Bus bus = bookingBL.GetBusId(id);
-            return View(bus);
+            Bus bus = busBL.GetBusId(id);
+            var config = new MapperConfiguration(cfg => {
+                cfg.CreateMap< Bus,BusViewModel>();
+            });
+            IMapper mapper = config.CreateMapper();
+            var buses = mapper.Map<Bus, BusViewModel>(bus);
+            return View(buses);
         }
         [HttpPost]
         public ActionResult Update(EditBusViewModel editBusViewModel)
@@ -69,7 +78,7 @@ namespace OnlineTicketBooking.Controllers
             IMapper mapper = config.CreateMapper();
             var editBus = mapper.Map<EditBusViewModel, Bus>(editBusViewModel);
             
-            bookingBL.EditBusDetails(editBus);
+            busBL.EditBusDetails(editBus);
             TempData["Message"] = "Bus Details Edited successfully!!";
             return RedirectToAction("Index");
         }

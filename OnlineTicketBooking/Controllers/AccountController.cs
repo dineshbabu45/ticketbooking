@@ -18,12 +18,14 @@ namespace OnlineTicketBooking.Controllers
             accountBL=new AccountBL();
         }
         // GET: Account
+        [AllowAnonymous]
         public ActionResult Login()
         {
+            
             return View();
         }
         [HttpPost]
-        public ActionResult Login(LoginViewModel loginViewModel)
+        public ActionResult Login(LoginViewModel loginViewModel,string returnUrl)
         {
                
             if (ModelState.IsValid)
@@ -34,39 +36,44 @@ namespace OnlineTicketBooking.Controllers
                 IMapper mapper = config.CreateMapper();
                 var account = mapper.Map<LoginViewModel, Account>(loginViewModel);
                 Account result = accountBL.Login(account);
-             
+                
+                //Session["CurrentUserID"] = result.UserId;
+                TempData["UserId"] = result.UserId;
+
+                // var returnUrl = (Request.QueryString["ReturnURL"]);
                 if (result != null)
                 {
                     FormsAuthentication.SetAuthCookie(result.EmailId, false);
 
-                    var authUser = new FormsAuthenticationTicket(1, result.EmailId, DateTime.Now, DateTime.Now.AddMinutes(20), false, result.IsAdmin.ToString());
+                    var authUser = new FormsAuthenticationTicket(1, result.EmailId, DateTime.Now, DateTime.Now.AddMinutes(30), false, result.IsAdmin.ToString());
                     string encryptedUser = FormsAuthentication.Encrypt(authUser);
                     var authCookie = new HttpCookie(FormsAuthentication.FormsCookieName, encryptedUser);
                     HttpContext.Response.Cookies.Add(authCookie);
-                    return RedirectToAction("Search", "Booking");
+                    //string returnUrl = Convert.ToString(Request.Form["ReturnURL"]);
+                    if (!string.IsNullOrEmpty(returnUrl))
+                    {
+                        Response.Redirect(returnUrl);
+                    }
+                    else
+                    {
+                        return RedirectToAction("Search", "Booking");
+                    }
+                    
+                    
                 }
 
                 else
                 {
-                    TempData["Message"] = ("Email Id or Password is incorrect");
+                    ViewBag.Message = "Email Id or Password is incorrect";
                     return View("Login");
                 }
             }
             return View();
         }
-        //
-        ///
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult LogOut()
-        {
-            FormsAuthentication.SignOut();
-            return RedirectToAction("Search","Booking");
-        }
-
+        [AllowAnonymous]
         public ActionResult SignUp()
         {
-           
+       
             return View();
         }
         [HttpPost]
@@ -85,10 +92,37 @@ namespace OnlineTicketBooking.Controllers
             }
             return View();
         }
-
-        public ActionResult Admin()
+        [Authorize]
+        public ActionResult MyProfile() //Edit User details
         {
-            return View();
+            //int userId = Convert.ToInt32(Session["CurrentUserID"]);
+            int userId = Convert.ToInt32(TempData["UserId"]);
+            Account userDetails = accountBL.GetUsersByUserID(userId);
+           
+            EditUserViewModel editUserViewModel = new EditUserViewModel() { Name = userDetails.Name, EmailId = userDetails.EmailId, Gender = userDetails.Gender, UserId = userDetails.UserId,Age=userDetails.Age };
+            return View(editUserViewModel);
+        }
+        [HttpPost]
+        public ActionResult ChangeProfile(EditUserViewModel editUserViewModel)
+        {
+            if (ModelState.IsValid)
+            {
+                var config = new MapperConfiguration(cfg => {
+                    cfg.CreateMap<EditUserViewModel,Account>();
+                });
+                IMapper mapper = config.CreateMapper();
+                var account = mapper.Map<EditUserViewModel, Account>(editUserViewModel);
+                accountBL.UpdateProfile(account);
+
+                return RedirectToAction("Search", "Booking");
+            }
+            return View(editUserViewModel);
+        }
+
+        public ActionResult LogOut()
+        {
+            FormsAuthentication.SignOut();
+            return RedirectToAction("Search", "Booking");
         }
     }
 }
