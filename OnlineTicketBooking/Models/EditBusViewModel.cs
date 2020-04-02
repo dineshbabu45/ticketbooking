@@ -38,7 +38,7 @@ namespace OnlineTicketBooking.Models
         public string BusTime { get; set; }
         [MaxLength(20)]
         [Required]
-        public string EndPoint { get; set; }
+        public string EndPoint { get; set; }  
         public IEnumerable<Bus> Buses { get; set; }
 
     }
