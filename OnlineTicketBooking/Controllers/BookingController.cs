@@ -1,5 +1,4 @@
 ﻿using BusBooking.Entity;
-
 using System.Collections.Generic;
 using System.Web.Mvc;
 using OnlineTicketBooking.Models;

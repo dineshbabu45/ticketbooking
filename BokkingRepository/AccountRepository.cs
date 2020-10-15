@@ -5,14 +5,14 @@ namespace BusBooking.Repository
 {
     public interface IAccountRepository //Interface
     {
-        void Signup(Account account);
-        Account Login(Account account);
+        void AddNewUser(Account account);
+        Account GetUsersByEmailandPassword(Account account);
         Account GetUsersByUserID(int userId);
         void UpdateProfile(Account account);
     }
     public class AccountRepository:IAccountRepository
     {
-        public void Signup(Account account) //Register
+        public void AddNewUser(Account account) //Register
         {
             using (BusTicketBookingDbContext accountContext = new BusTicketBookingDbContext())
             {
@@ -21,7 +21,7 @@ namespace BusBooking.Repository
                 accountContext.SaveChanges();
             }
         }
-        public Account Login(Account account) //Login 
+        public Account GetUsersByEmailandPassword(Account account) //Login 
         {
             
                 using (BusTicketBookingDbContext accountContext = new BusTicketBookingDbContext())

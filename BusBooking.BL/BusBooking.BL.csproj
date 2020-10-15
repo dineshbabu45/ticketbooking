@@ -51,9 +51,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BokkingRepository\BusBooking.Repository.csproj">
+    <ProjectReference Include="..\BokkingRepository\BusBooking.DAL.csproj">
       <Project>{22EB0DCB-5787-4759-A4AE-C2B7B0C57D7B}</Project>
-      <Name>BusBooking.Repository</Name>
+      <Name>BusBooking.DAL</Name>
     </ProjectReference>
     <ProjectReference Include="..\BookingEntity\BusBooking.Entity.csproj">
       <Project>{F2AFA49B-9D33-4CC3-8F09-91CDBC86A194}</Project>

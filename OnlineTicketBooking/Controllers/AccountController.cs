@@ -35,10 +35,10 @@ namespace OnlineTicketBooking.Controllers
                 });
                 IMapper mapper = config.CreateMapper();
                 var account = mapper.Map<LoginViewModel, Account>(loginViewModel);
-                Account result = accountBL.Login(account);
+                Account result = accountBL.GetUsersByEmailandPassword(account);
                 
-                //Session["CurrentUserID"] = result.UserId;
-                TempData["UserId"] = result.UserId;
+                Session["CurrentUserID"] = result.UserId;
+                //TempData["UserId"] = result.UserId;
 
                 // var returnUrl = (Request.QueryString["ReturnURL"]);
                 if (result != null)
@@ -58,8 +58,7 @@ namespace OnlineTicketBooking.Controllers
                     {
                         return RedirectToAction("Search", "Booking");
                     }
-                    
-                    
+              
                 }
 
                 else
@@ -86,7 +85,7 @@ namespace OnlineTicketBooking.Controllers
                 });
                 IMapper mapper = config.CreateMapper();
                 var account = mapper.Map<SignUpViewModel, Account>(signUpViewModel);
-                accountBL.SignUp(account);
+                accountBL.AddNewUser(account);
                 
                 return View(nameof(Login));
             }
@@ -95,8 +94,8 @@ namespace OnlineTicketBooking.Controllers
         [Authorize]
         public ActionResult MyProfile() //Edit User details
         {
-            //int userId = Convert.ToInt32(Session["CurrentUserID"]);
-            int userId = Convert.ToInt32(TempData["UserId"]);
+            int userId = Convert.ToInt32(Session["CurrentUserID"]);
+            //int userId = Convert.ToInt32(TempData["UserId"]);
             Account userDetails = accountBL.GetUsersByUserID(userId);
            
             EditUserViewModel editUserViewModel = new EditUserViewModel() { Name = userDetails.Name, EmailId = userDetails.EmailId, Gender = userDetails.Gender, UserId = userDetails.UserId,Age=userDetails.Age };

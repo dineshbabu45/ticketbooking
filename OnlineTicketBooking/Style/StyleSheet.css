@@ -162,12 +162,7 @@ input#Gender {
 }
 
 .SearchResult {
-    /*border: 1px solid;
-    margin-top: 1%;
-    margin-left: 6%;
-    text-align: center;
-    padding-top: 1%;
-    margin-right: 4%;*/
+  
     border: 1px solid #ddd;
     margin-top: 20px;
     padding: 10px 0 0;

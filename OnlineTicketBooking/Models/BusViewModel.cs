@@ -9,7 +9,6 @@ namespace OnlineTicketBooking.Models
         [Required]
         public string TravelsName { get; set; }
 
-        
         public int BusId { get; set; }
         [Required]
         [MaxLength(20)]
@@ -31,7 +30,6 @@ namespace OnlineTicketBooking.Models
         [MaxLength(20)]
         public string StartPoint { get; set; }
         
-      
         public string BusTime { get; set; }
         [MaxLength(20)]
         public string EndPoint { get; set; }

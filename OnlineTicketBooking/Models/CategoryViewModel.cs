@@ -8,6 +8,7 @@ namespace OnlineTicketBooking.Models
 {
     public class CategoryViewModel
     {
+        [Key]
         public int CategoryId { get; set; }
         [Required]
         [MaxLength(20)]

@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.29728.190
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusBooking.Entity", "BookingEntity\BusBooking.Entity.csproj", "{F2AFA49B-9D33-4CC3-8F09-91CDBC86A194}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusBooking.Repository", "BokkingRepository\BusBooking.Repository.csproj", "{22EB0DCB-5787-4759-A4AE-C2B7B0C57D7B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusBooking.DAL", "BokkingRepository\BusBooking.DAL.csproj", "{22EB0DCB-5787-4759-A4AE-C2B7B0C57D7B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusBooking.BL", "BusBooking.BL\BusBooking.BL.csproj", "{19373A1F-8CFE-4F53-990E-631B71745C84}"
 EndProject

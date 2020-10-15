@@ -134,7 +134,7 @@ if (typeof jQuery === 'undefined') {
         .one('bsTransitionEnd', removeElement)
         .emulateTransitionEnd(Alert.TRANSITION_DURATION) :
       removeElement()
-  }
+    }
 
 
   // ALERT PLUGIN DEFINITION

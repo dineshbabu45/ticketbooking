@@ -6,8 +6,8 @@ namespace BusBooking.BL
 {
     public interface IAccountBL
     {
-        void SignUp(Account account);
-        Account Login(Account account);
+        void AddNewUser(Account account);
+        Account GetUsersByEmailandPassword(Account account);
         Account GetUsersByUserID(int userId);
         void UpdateProfile(Account account);
     }
@@ -18,13 +18,13 @@ namespace BusBooking.BL
         {
             accountRepository = new AccountRepository();
         }
-        public void SignUp(Account account)
+        public void AddNewUser(Account account)
         {
-            accountRepository.Signup(account);
+            accountRepository.AddNewUser(account);
         }
-        public Account Login(Account account)
+        public Account GetUsersByEmailandPassword(Account account)
         {
-            return accountRepository.Login(account);
+            return accountRepository.GetUsersByEmailandPassword(account);
         }
         public Account GetUsersByUserID(int userId)
         {
